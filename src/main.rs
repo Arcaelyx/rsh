@@ -1,7 +1,9 @@
 use std::io::Write;
 
+mod parser;
 mod structs;
 
+use parser::parse;
 use structs::Directory;
 
 fn main() {
@@ -16,5 +18,7 @@ fn main() {
     buffer.clear();
     stdout.flush().ok();
     stdin.read_line(&mut buffer).ok();
+
+    parse(&buffer);
   }
 }
